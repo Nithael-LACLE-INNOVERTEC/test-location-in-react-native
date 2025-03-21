@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "testlocationapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -15,6 +15,20 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      // Add permissions to your AndroidManifest.xml (see Android setup)
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_MEDIA_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAXI0zq2hbV_AAy0-XImP0pqD3XFsgGwPQ"
+        }
       }
     },
     "web": {
@@ -31,6 +45,24 @@
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "react-native-permissions",
+        {
+          // Add setup_permissions to your Podfile (see iOS setup - steps 1, 2 and 3)
+          "iosPermissions": [
+            "Camera",
+            "Microphone",
+            "Location",
+            "MediaLibrary"
+          ],
+          "androidPermissions": [
+            "ACCESS_COARSE_LOCATION",
+            "ACCESS_FINE_LOCATION",
+            "ACCESS_BACKGROUND_LOCATION",
+            "ACCESS_MEDIA_LOCATION"
+          ]
         }
       ]
     ],
