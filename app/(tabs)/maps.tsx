@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import FakeData from '@/constants/FakeData';
 import useCurrentLocation, { UserLocationProps } from '@/hooks/useCurrentLocation';
 import MapView, { Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import BottomSheet from '@/components/component/BottomSheet';
 
 
 // Données JSON simulées
@@ -22,7 +23,7 @@ const maps = () => {
         <View style={styles.container}>
             <MapView
                 provider={PROVIDER_GOOGLE}
-                style={{ width: '100%', height: '100%' , ...StyleSheet.absoluteFillObject}}
+                style={{ ...StyleSheet.absoluteFillObject}}
                 initialRegion={(state as UserLocationProps | undefined)}
                 // region={state}
                 // onRegionChange={onRegionChange}
@@ -36,16 +37,17 @@ const maps = () => {
                 showsScale
 
             >
-                {/* <Marker
+                <Marker
                     coordinate={{
                         latitude: location.latitude,
                         longitude: location.longitude,
                     }}
                     title='Ma position actuelle'
                     description='Position INNOVERTEC-CONSULTING SARL'
-                    pinColor='blue'
-                /> */}
-                {clients.map((client) => {
+                    // pinColor='blue'
+                    onPress = {(data)=> console.log("Source : ", data)}
+                />
+                {/* {clients.map((client) => {
                     return (
                         <Marker
                             key={client.id}
@@ -54,8 +56,12 @@ const maps = () => {
                             description={client.address}
                         />
                     )
-                })}
+                })} */}
             </MapView>
+            {/* Google input */}
+            <BottomSheet/>
+
+
         </View>
     )
 }
@@ -65,5 +71,7 @@ export default maps
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        width: '100%',
+        height: '100%', 
     }
 })

@@ -261,7 +261,7 @@ const clients = [
     }
 ];
 
- const FakeData = {
+const FakeData = {
     clients
 };
 

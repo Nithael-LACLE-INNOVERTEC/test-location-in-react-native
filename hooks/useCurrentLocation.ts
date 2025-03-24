@@ -46,7 +46,7 @@ const useCurrentLocation = () => {
 
     console.log("Location current ", location);
 
-    return { location};
+    return { location, setLocation};
 }
 
 export default useCurrentLocation;
