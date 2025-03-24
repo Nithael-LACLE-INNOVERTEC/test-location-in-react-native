@@ -11,7 +11,7 @@ const initialPosition = {
 }; // Position initiale de l'utilisateur
 
 const usePositionLocation = () => {
-    const [location, setLocation] = useState<UserLocationProps>(initialPosition);
+    const [position, setPosition] = useState<UserLocationProps>(initialPosition);
 
     // Get User Current Position =================================================
     useEffect(() => {
@@ -27,20 +27,21 @@ const usePositionLocation = () => {
                 latitude: location.coords.latitude,
                 longitude: location.coords.longitude,
             });
-            setLocation({
+            setPosition({
                 latitude: location.coords.latitude,
                 longitude: location.coords.longitude,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421,
             });
         })();
+
     }, []);
 
-    
 
-    console.log("Location current ", location);
 
-    return { location};
+    console.log("Location current ", position);
+
+    return { position, setPosition };
 }
 
 export default usePositionLocation;
